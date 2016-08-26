@@ -6,12 +6,12 @@ import seedu.addressbook.data.exception.IllegalValueException;
  * Represents a Person's email in the address book.
  * Guarantees: immutable; is valid as declared in {@link #isValidEmail(String)}
  */
-public class Email {
+public class PostalCode {
 
-    public static final String EXAMPLE = "valid@e.mail";
-    public static final String MESSAGE_EMAIL_CONSTRAINTS =
-            "Person emails should be 2 alphanumeric/period strings separated by '@'";
-    public static final String EMAIL_VALIDATION_REGEX = "[\\w\\.]+@[\\w\\.]+";
+    public static final String EXAMPLE = "119043";
+    public static final String MESSAGE_POSTALCODE_CONSTRAINTS =
+            "Postal code should be a 6-digit number.";
+    public static final String POSTALCODE_VALIDATION_REGEX = "\\d+";
 
     public final String value;
     private boolean isPrivate;
@@ -21,20 +21,20 @@ public class Email {
      *
      * @throws IllegalValueException if given email address string is invalid.
      */
-    public Email(String email, boolean isPrivate) throws IllegalValueException {
+    public PostalCode(String postalCode, boolean isPrivate) throws IllegalValueException {
         this.isPrivate = isPrivate;
-        email = email.trim();
-        if (!isValidEmail(email)) {
-            throw new IllegalValueException(MESSAGE_EMAIL_CONSTRAINTS);
+        postalCode = postalCode.trim();
+        if (!isValidPostalCode(postalCode)) {
+            throw new IllegalValueException(MESSAGE_POSTALCODE_CONSTRAINTS);
         }
-        this.value = email;
+        this.value = postalCode;
     }
 
     /**
      * Checks if a given string is a valid person email.
      */
-    public static boolean isValidEmail(String test) {
-        return test.matches(EMAIL_VALIDATION_REGEX);
+    public static boolean isValidPostalCode(String test) {
+        return test.matches(POSTALCODE_VALIDATION_REGEX);
     }
 
     @Override
@@ -45,8 +45,8 @@ public class Email {
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-                || (other instanceof Email // instanceof handles nulls
-                && this.value.equals(((Email) other).value)); // state check
+                || (other instanceof PostalCode // instanceof handles nulls
+                && this.value.equals(((PostalCode) other).value)); // state check
     }
 
     @Override

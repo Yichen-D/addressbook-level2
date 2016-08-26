@@ -6,12 +6,12 @@ import seedu.addressbook.data.exception.IllegalValueException;
  * Represents a Person's email in the address book.
  * Guarantees: immutable; is valid as declared in {@link #isValidEmail(String)}
  */
-public class Email {
+public class Street {
 
-    public static final String EXAMPLE = "valid@e.mail";
-    public static final String MESSAGE_EMAIL_CONSTRAINTS =
-            "Person emails should be 2 alphanumeric/period strings separated by '@'";
-    public static final String EMAIL_VALIDATION_REGEX = "[\\w\\.]+@[\\w\\.]+";
+    public static final String EXAMPLE = "Clementi Ave 2";
+    public static final String MESSAGE_STREET_CONSTRAINTS =
+            "Street name is an alphanumeric string";
+    public static final String STREET_VALIDATION_REGEX = "[\\w\\.]+";
 
     public final String value;
     private boolean isPrivate;
@@ -21,20 +21,19 @@ public class Email {
      *
      * @throws IllegalValueException if given email address string is invalid.
      */
-    public Email(String email, boolean isPrivate) throws IllegalValueException {
+    public Street(String street, boolean isPrivate) throws IllegalValueException {
         this.isPrivate = isPrivate;
-        email = email.trim();
-        if (!isValidEmail(email)) {
-            throw new IllegalValueException(MESSAGE_EMAIL_CONSTRAINTS);
+        if (!isValidStreet(street)) {
+            throw new IllegalValueException(MESSAGE_STREET_CONSTRAINTS);
         }
-        this.value = email;
+        this.value = street;
     }
 
     /**
      * Checks if a given string is a valid person email.
      */
-    public static boolean isValidEmail(String test) {
-        return test.matches(EMAIL_VALIDATION_REGEX);
+    public static boolean isValidStreet(String test) {
+        return test.matches(STREET_VALIDATION_REGEX);
     }
 
     @Override
@@ -45,8 +44,8 @@ public class Email {
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-                || (other instanceof Email // instanceof handles nulls
-                && this.value.equals(((Email) other).value)); // state check
+                || (other instanceof Street // instanceof handles nulls
+                && this.value.equals(((Street) other).value)); // state check
     }
 
     @Override
