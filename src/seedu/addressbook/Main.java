@@ -30,15 +30,15 @@ public class Main {
     private List<? extends ReadOnlyPerson> lastShownList = null;
 
 
-    public static void main(String... launchArgs) {
+    public static void main(String... launchArgs) throws InvalidStorageFilePathException, StorageOperationException {
         new Main().run(launchArgs);
     }
 
     /** Runs the program until termination.  */
-    public void run(String[] launchArgs) {
-        start(launchArgs);
-        runCommandLoopUntilExitCommand();
-        exit();
+    public void run(String[] launchArgs) throws InvalidStorageFilePathException, StorageOperationException {
+    	start(launchArgs);
+		runCommandLoopUntilExitCommand();
+		exit();
     }
 
     /**
