@@ -3,8 +3,8 @@ package seedu.addressbook.data.person;
 import seedu.addressbook.data.exception.IllegalValueException;
 
 /**
- * Represents a Person's email in the address book.
- * Guarantees: immutable; is valid as declared in {@link #isValidEmail(String)}
+ * Represents a Person's unit number in the address book.
+ * Guarantees: immutable; is valid as declared in {@link #isValidUnit(String)}
  */
 public class Unit {
 
@@ -17,9 +17,9 @@ public class Unit {
     private boolean isPrivate;
     
     /**
-     * Validates given email.
+     * Validates given unit.
      *
-     * @throws IllegalValueException if given email address string is invalid.
+     * @throws IllegalValueException if given unit number string is invalid.
      */
     public Unit(String unit, boolean isPrivate) throws IllegalValueException {
         this.isPrivate = isPrivate;
@@ -31,7 +31,7 @@ public class Unit {
     }
 
     /**
-     * Checks if a given string is a valid person email.
+     * Checks if a given string is a valid unit number.
      */
     public static boolean isValidUnit(String test) {
         return test.matches(UNIT_VALIDATION_REGEX);

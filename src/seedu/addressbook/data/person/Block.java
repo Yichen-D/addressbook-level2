@@ -3,8 +3,8 @@ package seedu.addressbook.data.person;
 import seedu.addressbook.data.exception.IllegalValueException;
 
 /**
- * Represents a Person's email in the address book.
- * Guarantees: immutable; is valid as declared in {@link #isValidEmail(String)}
+ * Represents a Person's block in the address book.
+ * Guarantees: immutable; is valid as declared in {@link #isValidBlock(String)}
  */
 public class Block {
 
@@ -17,9 +17,9 @@ public class Block {
     private boolean isPrivate;
     
     /**
-     * Validates given email.
+     * Validates given block.
      *
-     * @throws IllegalValueException if given email address string is invalid.
+     * @throws IllegalValueException if given block number is invalid.
      */
     public Block(String block, boolean isPrivate) throws IllegalValueException {
         this.isPrivate = isPrivate;
@@ -31,7 +31,7 @@ public class Block {
     }
 
     /**
-     * Checks if a given string is a valid person email.
+     * Checks if a given string is a valid block number.
      */
     public static boolean isValidBlock(String test) {
         return test.matches(BLOCK_VALIDATION_REGEX);

@@ -3,8 +3,8 @@ package seedu.addressbook.data.person;
 import seedu.addressbook.data.exception.IllegalValueException;
 
 /**
- * Represents a Person's email in the address book.
- * Guarantees: immutable; is valid as declared in {@link #isValidEmail(String)}
+ * Represents a Person's street in the address book.
+ * Guarantees: immutable; is valid as declared in {@link #isValidStreet(String)}
  */
 public class Street {
 
@@ -17,9 +17,9 @@ public class Street {
     private boolean isPrivate;
     
     /**
-     * Validates given email.
+     * Validates given street.
      *
-     * @throws IllegalValueException if given email address string is invalid.
+     * @throws IllegalValueException if given street address string is invalid.
      */
     public Street(String street, boolean isPrivate) throws IllegalValueException {
         this.isPrivate = isPrivate;
@@ -30,7 +30,7 @@ public class Street {
     }
 
     /**
-     * Checks if a given string is a valid person email.
+     * Checks if a given string is a valid street name.
      */
     public static boolean isValidStreet(String test) {
         return test.matches(STREET_VALIDATION_REGEX);
