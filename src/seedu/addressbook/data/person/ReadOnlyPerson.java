@@ -87,7 +87,8 @@ public interface ReadOnlyPerson {
      * Returns a concatenated version of the printable strings of each object.
      */
     public default String getPrintableString(Printable... printables){
-	   
+    	
+    	
 	    String string = "";
 	    for(Printable printable: printables){
 		   string += printable.getPrintableString();
