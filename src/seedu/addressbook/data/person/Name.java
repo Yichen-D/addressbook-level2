@@ -74,8 +74,14 @@ public class Name implements Printable{
 	}
 	
 	public boolean isSimilar(Name other){
-		if(this.equals(other)) return true;
-		return false;
+		boolean isSimilar = true;
+		if(this.equals(other)) return isSimilar;
+		List<String> myName = this.getWordsInName();
+		List<String> otherName = other.getWordsInName();
+		for(String name1: myName){
+			isSimilar = isSimilar && (otherName.contains(name1.toLowerCase()));
+		}
+		return isSimilar;
 	}
 
 }

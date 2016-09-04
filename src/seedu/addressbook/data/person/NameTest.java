@@ -9,7 +9,10 @@ import seedu.addressbook.data.exception.IllegalValueException;
 public class NameTest {
 	public final String TEST_NAME_1 = "Harry Potter";
 	public final String TEST_NAME_2 = "Harry James Potter";
+	public final String TEST_NAME_3 = "Harry botter";
 	public final String TEST_NAME_4 = "harry potter";
+	//This case should not be considered as similar because the first name may not be same,
+	//especially for Asian names.
 	public final String TEST_NAME_5 = "Potter, H.";
 	
 	@Test
@@ -18,4 +21,19 @@ public class NameTest {
 		Name test2 = new Name(TEST_NAME_1);
 		assertEquals(true, test1.isSimilar(test2));
 	}
+	
+	@Test
+	public void ignoreCasesSame() throws IllegalValueException{
+		Name test1 = new Name(TEST_NAME_1);
+		Name test4 = new Name(TEST_NAME_4);
+		assertEquals(true, test1.isSimilar(test4));
+	}
+	
+	@Test
+	public void ignoreCasesDifferent() throws IllegalValueException{
+		Name test1 = new Name(TEST_NAME_1);
+		Name test3 = new Name(TEST_NAME_3);
+		assertEquals(false, test1.isSimilar(test3));
+	}
+	
 }
