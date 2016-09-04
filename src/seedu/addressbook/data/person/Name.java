@@ -72,5 +72,10 @@ public class Name implements Printable{
 		// TODO Auto-generated method stub
 		return false;
 	}
+	
+	public boolean isSimilar(Name other){
+		if(this.equals(other)) return true;
+		return false;
+	}
 
 }
