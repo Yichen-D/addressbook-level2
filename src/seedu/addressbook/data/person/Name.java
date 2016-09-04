@@ -76,11 +76,11 @@ public class Name implements Printable{
 	public boolean isSimilar(Name other){
 		boolean isSimilar = true;
 		if(this.equals(other)) return isSimilar;
-		List<String> myName = this.getWordsInName();
-		List<String> otherName = other.getWordsInName();
-		for(String name1: myName){
-			isSimilar = isSimilar && (otherName.contains(name1.toLowerCase()));
-		}
+		List<String> myName = Arrays.asList(this.fullName.toLowerCase().split("\\s*(,|\\s)\\s*"));
+		List<String> otherName = Arrays.asList(other.fullName.toLowerCase().split("\\s*(,|\\s)\\s*"));
+		List<String> set = myName.size()>=otherName.size() ? myName:otherName;
+		List<String> subset = myName.size()<otherName.size() ? myName:otherName;
+		isSimilar = set.containsAll(subset);
 		return isSimilar;
 	}
 

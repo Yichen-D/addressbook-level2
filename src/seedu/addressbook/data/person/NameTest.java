@@ -36,4 +36,12 @@ public class NameTest {
 		assertEquals(false, test1.isSimilar(test3));
 	}
 	
+	@Test
+	public void subSetIgnoreCases() throws IllegalValueException{
+		Name test4 = new Name(TEST_NAME_2);
+		Name test2 = new Name(TEST_NAME_4);
+		assertEquals(true, test4.isSimilar(test2));
+	}
+	
+	
 }
